@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "5218b7c5-c745-451e-b980-4611a059c522",
+		"name": "events",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32557317"
+	},
+	"item": [
+		{
+			"name": "get_all",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/events",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();",
+							"",
+							"pm.collectionVariables.set(\"id_event\", response.id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Rueda de Prensa\",\n    \"date\": \"2024-07-16\",\n    \"location\": \"Cartagena\",\n    \"capacity\": 100\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/events",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/events/{{id_event}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"events",
+						"{{id_event}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Entrevista\",\n    \"date\": \"2024-08-16\",\n    \"location\": \"Medellin\",\n    \"capacity\": 150\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/events/{{id_event}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"events",
+						"{{id_event}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/events/239a66ab-6939-49c1-b79e-de1753a08467",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"events",
+						"239a66ab-6939-49c1-b79e-de1753a08467"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_page",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/events/page",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"events",
+						"page"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:8080/api/v1"
+		},
+		{
+			"key": "url",
+			"value": ""
+		},
+		{
+			"key": "id_event",
+			"value": ""
+		}
+	]
+}
